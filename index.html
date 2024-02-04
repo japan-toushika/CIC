@@ -120,6 +120,10 @@
             background-color: rgb(248, 244, 244);
             margin-bottom: 0%;
         }
+        .big {
+            font-size: large;
+            font-weight: bold;
+        }
     </style>
     <script>
     function google_search() {
@@ -172,11 +176,13 @@
     </div>
     </center>
     <form id="hrefform">
-    <h4>検索</h4>
+    <div class="big">検索</div>
         <center>
-        <input type="text" id="search_box">
-        <button type="reset" class="button_s" id="reset">&times;</button>
-        <br>
+        <label>
+          <input type="text" id="search_box">
+          <button type="reset" class="button_s" id="reset">&times;</button>
+        </label>
+          <br>
         <button type="button" class="button" onclick="google_search()">Google</button>
         <button type="button" class="button" onclick="ecosia_search()">Ecosia</button>
         <button type="button" class="button" onclick="bing_search()">Bing</button>
