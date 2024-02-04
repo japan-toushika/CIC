@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=description content="投資家の方々向けの検索ツールです。私たちは何も収集しません。ほかにも様々なツールを公開しております。ページの公開にはGithubを使用しております。">
+    <link rel="icon" href="CIC F.ico">
+    <title>Central Information Center ver6.1.html</title>
+    <style>
+        @media screen and (max-width: 500px){
+            .button {
+                width: 22%;
+                padding: 4px;
+            }
+            #search_box {
+                padding: 10px;
+            }
+            input {
+                width: 90%;
+                margin: 2px;
+            }
+            #reset {
+                display: none;
+            }
+            #timehere {
+                display: none;
+            }
+        }
+        @media screen and (min-width: 501px){
+            .button {
+                width: 10%;
+                padding: 4px;
+            }
+            #search_box {
+                margin-bottom: 15px;
+                padding: 15px;
+            }
+            input {
+               width: 20%;
+               margin: 10px;
+               padding: 5px;
+            }
+            #searchselect {
+                width: 40%;
+            }
+            select {
+                padding: 5px;
+            }
+            #code1 {
+                width: 30%;
+            }
+        }
+        html {
+            font-family: sans-serif, Arial;
+            width: auto;
+            transition: all 1s;
+        }
+        h1 {
+            width: auto;
+        }
+        #search_box {
+            width: 75%;
+            font-size: 15px;
+            border: solid 2px black;
+        }
+        select, input {
+            border: solid 2px black; 
+            transition: all 1s;
+        }
+        input:hover {
+            background: linear-gradient(to right, white, rgb(201, 240, 255));
+        }
+        #search_box:hover {
+            background: linear-gradient(to right, white, rgb(201, 240, 255));
+        }
+        .button {
+            background-color: white;
+            border: solid 2px black; 
+            margin-top: 2px;
+            margin-bottom: 2px;
+            transition: all 0.2s;
+        }
+        .button:hover {
+            background-color: rgb(201, 240, 255);
+            border-radius: 4px;
+        }
+        .button_s {
+            width: 27px;
+            height: 27px;
+            background-color: white;
+            border: solid 2px black;
+            transition: all 0.2s;
+            border-radius: 50%;
+        }
+        .button_s:hover {
+            border-radius: 0%;
+            background-color: rgb(201, 240, 255);
+        }
+        #hrefselect {
+            width: 40%;
+        }
+        summary {
+            background-color: rgb(248, 244, 244);
+            margin-bottom: 1px;
+            transition: all 0.5s;
+            display: block;
+            list-style: none;
+        }
+        summary:hover {
+            background-color: rgb(252, 230, 230);
+            border-radius: 15px;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        footer {
+            width: 100%;
+            text-align: center;
+            background-color: rgb(248, 244, 244);
+            margin-bottom: 0%;
+        }
+    </style>
+    <script>
+    function google_search() {
+        var g1 = search_box.value;
+        window.open(`https://www.google.com/search?q=${g1}`);
+        }
+    function ecosia_search() {
+        var e1 = search_box.value;
+        window.open(`https://www.ecosia.org/search?method=index&q=${e1}`);
+    }
+    function bing_search() {
+        var b1 = search_box.value;
+        window.open(`https://www.bing.com/search?pglt=675&q=${b1}`);
+    }
+    function yahoo_search() {
+        var y1 = search_box.value;
+        window.open(`https://search.yahoo.co.jp/search?p=${y1}`);
+    }
+    function go_search2() {
+        var word = search_box.value;
+        var select_option = searchselect.value;
+        window.open(`${select_option}${word}`);
+    }
+    function stock_search() {
+        var code = code1.value;
+        var exchange = exchange1.value;
+        window.open(`https://www.google.com/finance/quote/${code}:${exchange}`);
+    }
+    function url_jump() {
+        var word2 = hrefselect.value;
+        window.open(`${word2}`);  
+    }
+    setInterval(() => {
+        var utc = new Date().toUTCString();
+        var time = new Date().toLocaleString();
+        var newyork = new Date().toLocaleString('en-US', { timeZone: 'America/New_York'  });
+        document.getElementById('JSTtimehere').innerHTML = time;
+        document.getElementById('UTCtimehere').innerHTML = utc;
+        document.getElementById('NEWtimehere').innerHTML = newyork;
+    })
+    </script>
+</head>
+<body>
+    <h1>Central Information Center</h1>
+    <center>
+        <div id="timehere">
+        JSTtime&ensp;:&ensp;<span id="JSTtimehere"></span>&ensp;&ensp;&ensp;
+        UTCtime&ensp;:&ensp;<span id="UTCtimehere"></span>&ensp;&ensp;&ensp;
+        NEW&ensp;Yorktime&ensp;:&ensp;<span id="NEWtimehere"></span>
+    </div>
+    </center>
+    <form id="hrefform">
+    <h4>検索</h4>
+        <center>
+        <input type="text" id="search_box">
+        <button type="reset" class="button_s" id="reset">&times;</button>
+        <br>
+        <button type="button" class="button" onclick="google_search()">Google</button>
+        <button type="button" class="button" onclick="ecosia_search()">Ecosia</button>
+        <button type="button" class="button" onclick="bing_search()">Bing</button>
+        <button type="button" class="button" onclick="yahoo_search()">Yahoo</button>
+        <br>
+        <select id="searchselect">
+            <option>選択してください</option>
+            <option value="https://www.deepl.com/ja/translator#ja/en/">翻訳 - Deeplで翻訳</option>
+            <option value="https://www.youtube.com/results?search_query=">動画 - Youtube内を検索</option>
+            <option value="https://minkabu.jp/stock/find?tag=">株式 - みんかぶで検索</option>
+            <option value="https://www.google.co.jp/maps/place/">地図 - Google mapで検索</option>
+        </select>  
+        <button type="button" class="button" onclick="go_search2()">検索</button>
+        <br>
+        <input type="text" id="code1" placeholder="証券コードを入力">
+        <select id="exchange1">
+            <option value="TYO">東京証券取引所</option>
+            <option value="NYSE">NEW YORK STOCK EXCHANGE</option>
+            <option value="NASDAQ">NASDAQ</option>
+        </select>
+        <button type="button" onclick="stock_search()" class="button">株価表示</button>
+        <br>
+        <select id="hrefselect">
+            <option>サイトを選択</option>
+          <optgroup label="検索エンジン">
+             <option value="https://www.ecosia.org">Ecosia</option>
+             <option value="https://google.com">Google</option>
+             <option value="https://www.startpage.com/">Startpage</option>
+             <option value="https://www.yahoo.co.jp/">Yahoo&#33; JAPAN</option>
+          </optgroup>
+          <optgroup label="経済指標">
+            <option value="https://www.stat.go.jp/info/headline/index.html">家計調査 - 総務省統計局ヘッドライン</option>
+            <option value="https://www.boj.or.jp/statistics/tk/index.htm">日銀短観 - 日本銀行統計</option>
+            <option value="https://www.esri.cao.go.jp/jp/sna/menu.html">GDP統計（日本） - 内閣府　国民経済計算</option>
+            <option value="https://www.esri.cao.go.jp/jp/stat/juchu/menu_juchu.html">機械受注統計調査 - 内閣府　機械受注統計調査</option>
+            <option value="https://www.stat.go.jp/data/cpi/">消費者物価指数 - 総務省統計局</option>
+            <option value="https://gold.tanaka.co.jp/commodity/souba/index.php">貴金属価格情報 - 田中貴金属</option>
+            <option value="https://www.mof.go.jp/policy/international_policy/reference/balance_of_payments/index.htm">国際収支統計 - 財務省</option>
+            <option value="https://www.boj.or.jp/statistics/boj/other/mb/index.htm">マネタリーベース - 日本銀行統計</option>
+          </optgroup>
+          <optgroup label="コーポレートサイト">
+            <option value="https://www.mitsubishicorp.com/jp/ja/">三菱商事</option>         
+            <option value="https://group.ntt/jp/">日本電信電話</option>
+            <option value="https://www.bk.mufg.jp/">三菱UFJフィナンシャルグループ</option>
+            <option value="https://www.shinetsu.co.jp/jp/">信越化学工業株式会社</option>
+            <option value="https://www.komatsu.jp/ja">小松製作所</option>           
+            <option value="https://www.softbank.jp/">ソフトバンク</option>
+            <option value="https://www.jfe-holdings.co.jp/">JFEホールディングス株式会社</option>
+            <option value="https://www.murata.com/ja-jp">村田製作所</option>
+            <option value="https://www.sony.com/ja/">ソニーグループ</option>
+            <option value="https://www.nyk.com/">日本郵船</option>
+         </optgroup>
+         <optgroup label="情報サイト">
+            <option value="https://news.yahoo.co.jp/">Yahoo! NEWS</option>
+            <option value="https://search.worldcat.org/ja">World Cat - 世界中の論文を検索</option>
+            <option value="https://www.aguse.jp/">Agusu - サーバー情報、マルウェアの判別</option>
+            <option value="https://check.gred.jp/">Gred - 危険なサイトかの判別</option>
+            <option value="https://plus.nhk.jp/">NHK プラス</option>
+            <option value="https://www.e-gov.go.jp/">e-GOV - 日本の法令・政令検索</option>
+            <option value="https://www.ndl.go.jp/jp/use/service/index.html">国会図書館Webサービス検索</option>
+            <option value="https://www.courts.go.jp/app/hanrei_jp/search1">裁判所判例検索</option>
+            <option value="https://www.stat.go.jp/">総務省統計局</option>
+            <option value="https://www.youtube.com/">YouTube</option>
+            <option value="https://search.yahoo.co.jp/realtime/">Yahooリアルタイム検索</option>
+         </optgroup>
+         <optgroup label="情報サイト（株式）">
+            <option value="https://minkabu.jp/">みんかぶ</option>
+            <option value="https://www2.jpx.co.jp/tseHpFront/JJK010010Action.do?Show=Show">東証上場会社情報サービス</option>
+         </optgroup>
+            <optgroup label="情報サイト（地図）">
+            <option value="https://www.anzen.mofa.go.jp/riskmap/index.html">海外安全ホームページ - 外務省</option>
+            <option value="https://radio.garden/visit/tokyo/eR8K4rBb">Radio Garden - 世界中のラジオ</option>
+            <option value="https://houjin.jp/blacks">ブラック企業リスト - 全国法人リスト</option>
+            <option value="https://www.cametan.com/">Webcamera</option>
+            <option value="https://www.marinetraffic.com/">Marinetraffic - 世界の船舶の検索</option>
+            <option value="https://www.flightradar24.com/">Flightradar24</option>
+         </optgroup>
+         <optgroup label="貴金属関連">
+            <option value="https://www.lbma.org.uk/good-delivery/gold-current-list#%7B%22search%22%3A%22PAMP%22%7D">LBMA</option>
+         </optgroup>
+        </select>
+        <button onclick="url_jump()" class="button" type="button">サイトへ</button>
+    </center>
+    <br>
+    </form>
+    <details>
+        <summary>&ensp;貴金属価格情報</summary>
+        <br>
+    <iframe src="https://gold.tanaka.co.jp/commodity/souba/index.php" width="100%" height="500px"></iframe>
+    </details>
+    <details>
+        <summary>&ensp;国内ニュース</summary>
+        <button class="button"><a href="https://news.yahoo.co.jp/flash?p=2">Yahoo！ News</a></button>
+        <button class="button"><a href="https://www.nikkei.com/news/cat！egory/">日本経済新聞</a></button>
+        <button class="button"><a href="https://www3.nhk.or.jp/news/">NHKニュース</a></button>
+    </details>
+    <details>
+        <summary>&ensp;Investor Tools</summary>
+        &ensp;<a href="https://japan-toushika.github.io/SuperSearch/"><img alt="SS" width="30px" src="SS F.ico"</a>
+        &ensp;<a href="https://japan-toushika.github.io/TIC/"><img alt="TIC" width=45px" src="TIC F.ico"</a>
+        &ensp;<a href="https://japan-toushika.github.io/Worldtime/"><img alt="WT" width=45px" src="WT F.ico"</a>
+    </details>
+    <br>
+        <button class="button_s" type="button"><a href="https://www.google.co.jp/" target="_blank">G</a></button>
+        <button class="button_s" type="button"><a href="https://www.ecosia.org/" target="_blank">E</a></button>
+        <button class="button_s" type="button"><a href="https://japan-toushika.github.io/HOME.html" target="_blank">H</a></button>
+    <p>
+    <footer id="footer">
+        <a href="Centaral Information Center ver.7.1.html"><img alt="CIC" width="30px" src="CIC F.ico"></a>
+        <br>
+        <span class="center">
+        <small>&copy;2024 All Rights Reserved
+            <br>ver.7.1</small>
+        </span>
+    </footer>
+</p>
+</body>
+</html>
