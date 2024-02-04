@@ -26,6 +26,15 @@
             #timehere {
                 display: none;
             }
+            #searchselect {
+                margin-top: 10px;
+            }
+            select {
+                padding: 4px;
+            }
+            #code1 {
+                padding: 4px;
+            }
         }
         @media screen and (min-width: 501px){
             .button {
@@ -177,7 +186,7 @@
     </div>
     </center>
     <form id="hrefform">
-    <div class="big">検索</div>
+       <div class="big">検索</div>
         <center>
         <label>
           <input type="text" id="search_box">
@@ -189,14 +198,16 @@
         <button type="button" class="button" onclick="bing_search()">Bing</button>
         <button type="button" class="button" onclick="yahoo_search()">Yahoo</button>
         <br>
-        <select id="searchselect">
-            <option>選択してください</option>
-            <option value="https://www.deepl.com/ja/translator#ja/en/">翻訳 - Deeplで翻訳</option>
-            <option value="https://www.youtube.com/results?search_query=">動画 - Youtube内を検索</option>
-            <option value="https://minkabu.jp/stock/find?tag=">株式 - みんかぶで検索</option>
-            <option value="https://www.google.co.jp/maps/place/">地図 - Google mapで検索</option>
-        </select>  
-        <button type="button" class="button" onclick="go_search2()">検索</button>
+        <label>
+            <select id="searchselect">
+              <option>選択してください</option>
+              <option value="https://www.deepl.com/ja/translator#ja/en/">翻訳 - Deeplで翻訳</option>
+              <option value="https://www.youtube.com/results?search_query=">動画 - Youtube内を検索</option>
+              <option value="https://minkabu.jp/stock/find?tag=">株式 - みんかぶで検索</option>
+              <option value="https://www.google.co.jp/maps/place/">地図 - Google mapで検索</option>
+            </select>  
+            <button type="button" class="button" onclick="go_search2()">検索</button>
+        </label>
         <br>
         <label>
           <input type="text" id="code1" placeholder="証券コードを入力">
@@ -208,6 +219,7 @@
           <button type="button" onclick="stock_search()" class="button">株価表示</button>
         </label>
         <br>
+        <label>
         <select id="hrefselect">
             <option>サイトを選択</option>
           <optgroup label="検索エンジン">
@@ -268,8 +280,9 @@
          </optgroup>
         </select>
         <button onclick="url_jump()" class="button" type="button">サイトへ</button>
-    </center>
-    <br>
+        </label>
+        </center>
+        <br>
     </form>
     <details>
         <summary>&ensp;国内ニュース</summary>
