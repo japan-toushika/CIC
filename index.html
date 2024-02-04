@@ -11,13 +11,14 @@
             .button {
                 width: 22%;
                 padding: 4px;
+                margin-bottom: 3px;
             }
             #search_box {
                 padding: 10px;
             }
             input {
                 width: 90%;
-                margin: 2px;
+                margin: 6px;
             }
             #reset {
                 display: none;
@@ -188,7 +189,6 @@
         <button type="button" class="button" onclick="bing_search()">Bing</button>
         <button type="button" class="button" onclick="yahoo_search()">Yahoo</button>
         <br>
-        <br>
         <select id="searchselect">
             <option>選択してください</option>
             <option value="https://www.deepl.com/ja/translator#ja/en/">翻訳 - Deeplで翻訳</option>
@@ -198,13 +198,15 @@
         </select>  
         <button type="button" class="button" onclick="go_search2()">検索</button>
         <br>
-        <input type="text" id="code1" placeholder="証券コードを入力">
-        <select id="exchange1">
+        <label>
+          <input type="text" id="code1" placeholder="証券コードを入力">
+          <select id="exchange1">
             <option value="TYO">東京証券取引所</option>
             <option value="NYSE">NEW YORK STOCK EXCHANGE</option>
             <option value="NASDAQ">NASDAQ</option>
-        </select>
-        <button type="button" onclick="stock_search()" class="button">株価表示</button>
+          </select>
+          <button type="button" onclick="stock_search()" class="button">株価表示</button>
+        </label>
         <br>
         <select id="hrefselect">
             <option>サイトを選択</option>
